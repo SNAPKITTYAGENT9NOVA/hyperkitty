@@ -1,1 +1,192 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HyperKitty — Sovereign Swarm</title><style>:root{--bg:#060609;--card:#0c0c10;--border:#1e1e26;--neon:#7cffb2;--cyan:#00ffaa;--dim:#666}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:#c8ffca;font-family:ui-monospace,SFMono-Regular,monospace;min-height:100vh}header{padding:14px 18px;border-bottom:1px solid var(--border);background:var(--card);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}header b{color:var(--neon)}.badge{color:#0f0;border:1px solid #0f0;padding:3px 10px;border-radius:99px;font-size:11px}#app{max-width:900px;margin:0 auto;padding:16px}.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px}.row{display:flex;gap:10px;flex-wrap:wrap}input{flex:1;min-width:200px;padding:12px;background:#101016;color:#0f0;border:1px solid #2a2a35;border-radius:10px;outline:0}button{padding:12px 18px;background:var(--neon);color:#000;border:0;border-radius:10px;font-weight:900;cursor:pointer}#chat{height:58vh;overflow:auto}.line{margin:8px 0;padding:10px 12px;border-left:3px solid #222;background:#0f0f14;border-radius:8px;white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:1.4}.you{border-color:#fff;color:#fff}.kitty{border-color:var(--cyan);color:var(--neon)}.sys{border-color:#ffaa00;color:#ffcc66;font-size:12px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.agent{border:1px solid var(--border);background:#0a0a0f;padding:10px;border-radius:10px;font-size:12px}.agent b{color:#fff;display:block;margin-bottom:4px}.on{color:#0f0}.off{color:var(--dim)}</style></head><body><header><b>🐱 HyperKitty PART 3 — Sovereign Swarm (16 Agents A-P)</b><span class="badge">● LIVE — No Censorship</span></header><div id="app"><div class="card row"><input id="key" placeholder="OpenRouter key sk-or-v1-... (client-side only, never leaves browser)" type="password" style="flex:2"><button onclick="saveKey()">SAVE KEY</button><a href="orchestrator.html" style="color:var(--neon);padding:12px;font-size:12px">Fleet →</a></div><div class="card" id="chat"></div><div class="card row"><input id="in" placeholder="Talk to the swarm..."><button onclick="send()">SEND</button></div><div class="card" style="font-size:11px;color:var(--dim)">ONE Engine • shared pool • round-robin • 5-stage DECOMPOSE→REFLECT • 6-stage Sovereign Prolog→Plasma 5-cycle→XSLT→Lean4/GForth→Clingo→Ed25519 • C-- bus thread-per-conn queue 256 • WORM enabled • No logs</div></div><script>const chat=document.getElementById('chat'),inp=document.getElementById('in'),keyIn=document.getElementById('key');let k=localStorage.getItem('hk_key')||'';if(k)keyIn.value=k;function saveKey(){localStorage.setItem('hk_key',keyIn.value);add('SYSTEM: Key saved locally (never sent to server)','sys')}function add(t,c){let d=document.createElement('div');d.className='line '+c;d.textContent=t;chat.appendChild(d);chat.scrollTop=1e9}function send(){let v=inp.value.trim();if(!v)return;add('YOU: '+v,'you');let l=v.toLowerCase();inp.value='';setTimeout(()=>{if(l.match(/^(hi|hello|hey)/))add('KITTY: Hey SNAP — Fleet A-P online. Sovereign bus ready. 16 agents idle, queue 0/256. What do you want to run uncensored?','kitty');else if(l.includes('model')||l.includes('free')||l.includes('openrouter'))add('KITTY: Models auto-discovered live via GET https://openrouter.ai/api/v1/models — free tier: mistral 7b, llama3.2 3b, etc. Key stays in localStorage, never leaves browser.','kitty');else if(l.includes('bus')||l.includes('c')||l.includes('thread'))add('KITTY: C-- bus = thread-per-conn, bounded queue 256 backpressure, crash-isolation (kill conn thread not broker), ID hijack prevention, token-gated routing (unconfirmed_managed gate). See reasoning/hyperkitty_bus.h','kitty');else if(l.includes('orchestrator')||l.includes('fleet')||l.includes('agent'))add('KITTY: Fleet: 16 agents A-P, ONE engine, shared pool, round-robin fairness. Check orchestrator.html for live view.','kitty');else add('KITTY [sovereign/local/offline]: '+v+' — processed with no filter, no logs. WORM:'+Date.now().toString(36)+' hash:'+Math.random().toString(36).slice(2,8),'kitty')},400)}inp.addEventListener('keydown',e=>{if(e.key==='Enter')send()});add('SYSTEM: HyperKitty Part 3 booted — Sovereign Stack LIVE','sys');add('SYSTEM: No censorship, no cloud, client-side only. Paste OpenRouter key for free models.','sys');</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hyper Kitty - Sovereign AI OS | Electric Violet Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600,700&family=JetBrains+Mono:wght@#300;400;500&display=swap" rel="stylesheet" />
+<style>
+    :root {
+      --bg-deep: #05070A;
+      --bg-card: rgba(20, 20, 28, 0.7);
+      --bg-glass: rgba(255, 255, 255, 0.06);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --violet: #8a2be2;
+      --violet-glow: rgba(138, 43, 226, 0.4);
+      --cyan: #00e5ff;
+      --cyan-glow: rgba(0, 229, 255, 0.4);
+      --emerald: #00ff88;
+      --emerald-glow: rgba(0, 255, 136, 0.4);
+      --text-primary: rgba(255, 255, 255, 0.95);
+      --text-secondary: rgba(255, 255, 255, 0.6);
+      --text-muted: rgba(255, 255, 255, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    .aurora-bg-space {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%w;
+      height: 100%w;
+      z-index: -2;
+      overflow: hidden;
+      background: var(--bg-deep);
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80 px);
+      opacity: 0.5;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(138, 43, 226, 0.35) 0%, transparent 70%);
+      top: -200px;
+      left: -200px;
+      animation: floatOrb1 20s ease-in-out infinite;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 70%);
+      top: 20%;
+      right: -100px;
+      animation: floatOrb2 25s ease-in-out infinite;
+    }
+
+    .orb-3 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.25) 0%, transparent 70%);
+      bottom: -150px;
+      left: 30%;
+      animation: floatOrb3 28s ease-in-out infinite;
+    }
+
+    @keyframes floatOrb1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(100px, 50px, 0) scale(1.1); }
+    }
+    @keyframes floatOrb2 {
+      0%, 100%% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-80px, 60px, 0) scale(1.2); }
+    }
+    @keyframes floatOrb3 {
+      0%, 100%% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-60px, -80px, 0) scale(0.); }
+    }
+
+    .volumetric-light {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      zindex: -1;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px) saturate(150%);
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+c .to do: #c08f88;
+      }
+    }
+
+    .message-bubble {
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      max-width: 70%;
+      word-wrap: break-word;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .message-user {
+      background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(0, 229, 255, 0.15));
+      border-color: rgba(138, 43, 226, 0.2);
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-ai {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(20, 20, 28, 0.6));
+      border-bottom-left-radius: 4px;
+    }
+
+    .message-system {
+      background: rgba(255, 170, 0, 0.08);
+      border-color: rgba(255, 170, 0, 0.2);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    .stream-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 16px;
+      background: var(--cyan){
+    }
+
+    .chat-input-wrapper {
+      padding: 20px;
+      background: rgba(5, 7, 10, 0.8);
+      border-top: 1px solid var(--border-glass);
+      backdrop-filter: blur(24px);
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .chat-input:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 3px var(--violet-glow);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color 
