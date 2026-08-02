@@ -1,6 +1,5 @@
-# HyperKitty — Sovereign Swarm (Part 3 LIVE)
-Minimal chat that orchestrates 16 agents (A-P).
-- reasoning/hyperkitty_bus.h/.c — C twin of hc_bus.cpp
-- web/index.html — Minimal clean chat (OpenRouter free models)
-- web/orchestrator.html — Full fleet view
-Run: just open web/index.html
+# HyperKitty — Sovereign Swarm Part 3 LIVE
+- web/index.html = Sovereign chat (no censorship)
+- web/orchestrator.html = 16 agents A-P fleet view
+- reasoning/hyperkitty_bus.h/.c = C-- twin of hc_bus.cpp (thread-per-conn, queue 256)
+Live: https://SNAPKITTYAGENT9NOVA.github.io/hyperkitty/web/
